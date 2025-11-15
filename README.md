@@ -153,16 +153,6 @@ http://localhost/Smart-Call-Book-App/Login.html
 
   ```  
 
-### 4️⃣ Configure Database Connection  
-Update credentials inside PHP files (if needed):
-
-```php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "smartcallbook";
-```
-
 
 
 
