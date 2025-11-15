@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Login page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, rgb(237, 245, 252), rgb(168, 210, 250), rgb(40, 158, 232));
+        }
+
+        .login-cont {
+            width: 55%;
+            max-width: 900px;
+            height: auto;
+            background-color: #ffffff;
+            position: absolute;
+            left: 250px;
+            top: 100px;
+            border-radius: 20px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .header {
+            width: 50%;
+            height: 100%;
+            color: #ffffff;
+            background-color: dodgerblue;
+            border-bottom-right-radius: 100px;
+            border-top-right-radius: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all ease 0.9s;
+        }
+
+        .header>h3 {
+            font-size: 30px;
+            font-weight: bolder;
+            margin-bottom: 5px;
+        }
+
+        .header>p {
+            font-size: 15px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        #reg-btn {
+            width: 130px;
+            padding: 10px 25px;
+            border-radius: 20px;
+            background-color: #ffffff;
+            border: none;
+            color: #222;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all ease 0.3s;
+        }
+
+        .header>button:hover {
+            cursor: pointer;
+            color: black;
+            background-color: #f1ecec;
+            box-shadow: 0px 16px 28px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .login {
+            width: 50%;
+            height: 100%;
+            padding: 20px 10px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            transition: all ease 0.9s;
+            transform: translateX(420px);
+            
+
+        }
+
+        .login>h3 {
+            font-size: 30px;
+            font-weight: bolder;
+            margin-top: 30px;
+        }
+
+        .login>form {
+            width: 95%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 5px;
+            gap: 13px;
+            margin-right: 25px;
+            align-self: flex-end;
+
+        }
+
+        .input-group {
+            width: 100%;
+            padding: 0px 5px;
+          
+
+        }
+
+        .login-inputs {
+            width: 95%;
+            height: 25px;
+            padding: 22px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            background-color: rgb(240, 239, 239);
+            border: none;
+            box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+
+        }
+
+        input::placeholder {
+            font-size: 18px;
+            color: #656464;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        input:focus::placeholder {
+            color: #b4b1b1;
+        }
+
+        #user-icon {
+            position: absolute;
+            top: 135px;
+            left: 310px !important ;
+            z-index: 2;
+            transition: all ease 0.9s;
+            /* transform: translateX(); */
+        }
+
+        #pass-icon {
+            position: absolute;
+            top: 200px;
+            left: 310px !important;
+            transition: all ease 0.9s;
+            transform: translateX();
+            z-index: 3;
+        }
+
+        .forgot-pera {
+            color: #656464;
+            text-align: center;
+        }
+
+        .login-btn {
+            width: 90%;
+            padding: 10px 10px;
+            margin: 5px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: dodgerblue;
+            cursor: pointer;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all ease 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: rgb(0, 109, 218);
+        }
+
+        /* Registration Page Area  */
+        .reg {
+            width: 52%;
+            height: 100%;
+            padding: 20px 10px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            align-items: center;
+            transform: translateX(-100%);
+            transition: all ease 0.9s;
+        }
+
+        .reg>form {
+            width: 90%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            margin: 20px 5px;
+            padding-left: 20px;
+            gap: 13px;
+            position: relative;
+        }
+
+        .reg-inputs {
+            width: 100%;
+            height: 25px;
+            padding: 22px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            background-color: rgb(240, 239, 239);
+            border: none;
+            box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .reg-icon {
+            position: absolute;
+            top: 0;
+            left: 330px !important;
+            z-index: 2;
+            transition: all ease 0.3s;
+        }
+
+        #reg-icon-user {
+            top: 20px;
+        }
+
+        #reg-icon-email {
+            top: 85px;
+        }
+
+        #reg-icon-pass {
+            top: 150px;
+        }
+
+        .reg>h3 {
+            font-size: 30px;
+            font-weight: bolder;
+            margin-top: 30px;
+            color: #222
+        }
+
+        #signup-btn {
+            width: 50%;
+            padding: 10px 10px;
+            margin: 5px;
+            margin-top: 5px;
+            align-self: center;
+            border: none;
+            border-radius: 5px;
+            background-color: dodgerblue;
+            cursor: pointer;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all ease 0.3s;
+        }
+
+        #signup-btn:hover {
+            background-color: rgb(0, 109, 218);
+        }
+
+        /* registration page right side  */
+        .reg-text {
+            background-color: dodgerblue;
+            width: 46%;
+            padding: 30px 10px;
+            margin-left: 15px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
+            transform: translateX(100%);
+            transition: all ease 0.9s;
+        }
+
+        .reg-text>h1 {
+            margin-top: 100px;
+            font-size: 40px;
+            color: #ffffff;
+        }
+
+        .reg-text>p {
+            color: #f1ecec;
+        }
+
+        #signin-btn {
+            width: 130px;
+            margin-top: 25px;
+            padding: 10px 25px;
+            border-radius: 20px;
+            background-color: #ffffff;
+            border: none;
+            color: #222;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all ease 0.3s;
+            cursor: pointer;
+        }
+
+        #signin-btn:hover {
+            transform: translateY(3px) scale(1.05);
+        }
+
+
+        /* Large devices (laptops/desktops, 992px and up) */
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .login-cont {
+                width: 70%;
+                left: 15%;
+            }
+
+            #user-icon {
+                left: 240px;
+            }
+
+            #pass-icon {
+                left: 240px;
+            }
+
+            .reg-icon {
+                left: 230px;
+            }
+        }
+
+        /* Medium devices (tablets, 768px to 991px) */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .login-cont {
+                width: 85%;
+                left: 7.5%;
+                top: 80px;
+            }
+
+            .header>h3 {
+                font-size: 25px;
+            }
+
+            .login>h3,
+            .reg>h3 {
+                font-size: 25px;
+            }
+
+            #user-icon {
+                left: 200px;
+            }
+
+            #pass-icon {
+                left: 200px;
+            }
+
+            .reg-icon {
+                left: 190px;
+            }
+
+            .reg-text>h1 {
+                font-size: 32px;
+            }
+        }
+
+        /* Small devices (landscape phones, 576px to 767px) */
+        @media (min-width: 576px) and (max-width: 767px) {
+            .login-cont {
+                width: 90%;
+                left: 5%;
+                top: 60px;
+                flex-direction: column;
+                height: auto;
+                min-height: 600px;
+            }
+
+            .header {
+                width: 100%;
+                height: 200px;
+                border-radius: 20px;
+                position: relative;
+                padding: 20px;
+            }
+
+            .login {
+                width: 100%;
+                height: auto;
+                padding: 30px 20px;
+                position: relative;
+                transform: none;
+                order: 2;
+            }
+
+            .reg {
+                width: 100%;
+                height: auto;
+                padding: 30px 20px;
+                position: relative;
+                transform: none;
+                order: 2;
+            }
+
+            .reg-text {
+                width: 100%;
+                height: 200px;
+                border-radius: 20px;
+                margin-left: 0;
+                position: relative;
+                transform: none;
+                order: 1;
+                padding: 20px;
+            }
+
+            .reg-text>h1 {
+                margin-top: 20px;
+                font-size: 28px;
+            }
+
+            #user-icon,
+            #pass-icon {
+                display: none;
+            }
+
+            .reg-icon {
+                display: none;
+            }
+
+            .login-inputs,
+            .reg-inputs {
+                padding: 18px 15px;
+            }
+
+            input::placeholder {
+                font-size: 16px;
+            }
+
+            .login-btn,
+            #signup-btn {
+                font-size: 16px;
+                padding: 12px 10px;
+            }
+
+            /* JavaScript animation adjustments */
+            .login-text-active {
+                transform: translateY(-100%);
+            }
+
+            .login-page-active {
+                transform: translateY(0);
+            }
+
+            .reg-page-active {
+                transform: translateY(0);
+            }
+
+            .reg-text-active {
+                transform: translateY(-100%);
+            }
+        }
+
+        /* Extra small devices (portrait phones, less than 576px) */
+        @media (max-width: 575px) {
+            .login-cont {
+                width: 95%;
+                left: 2.5%;
+                top: 40px;
+                flex-direction: column;
+                height: auto;
+                min-height: 550px;
+            }
+
+            .header {
+                width: 100%;
+                height: 180px;
+                border-radius: 15px;
+                position: relative;
+                padding: 15px;
+            }
+
+            .header>h3 {
+                font-size: 22px;
+            }
+
+            .header>p {
+                font-size: 14px;
+            }
+
+            .login {
+                width: 100%;
+                height: auto;
+                padding: 25px 15px;
+                position: relative;
+                transform: none;
+                order: 2;
+            }
+
+            .login>h3 {
+                font-size: 22px;
+                margin-top: 15px;
+            }
+
+            .reg {
+                width: 100%;
+                height: auto;
+                padding: 25px 15px;
+                position: relative;
+                transform: none;
+                order: 2;
+            }
+
+            .reg>h3 {
+                font-size: 22px;
+                margin-top: 15px;
+            }
+
+            .reg-text {
+                width: 100%;
+                height: 180px;
+                border-radius: 15px;
+                margin-left: 0;
+                position: relative;
+                transform: none;
+                order: 1;
+                padding: 15px;
+            }
+
+            .reg-text>h1 {
+                margin-top: 15px;
+                font-size: 24px;
+            }
+
+            .reg-text>p {
+                font-size: 14px;
+            }
+
+            #user-icon,
+            #pass-icon {
+                display: none;
+            }
+
+            .reg-icon {
+                display: none;
+            }
+
+            .login-inputs,
+            .reg-inputs {
+                padding: 15px 12px;
+                font-size: 14px;
+            }
+
+            input::placeholder {
+                font-size: 14px;
+            }
+
+            .login-btn,
+            #signup-btn {
+                font-size: 15px;
+                padding: 12px 10px;
+            }
+
+            #reg-btn,
+            #signin-btn {
+                width: 120px;
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+
+            .forgot-pera {
+                font-size: 14px;
+            }
+
+            /* JavaScript animation adjustments */
+            .login-text-active {
+                transform: translateY(-100%);
+            }
+
+            .login-page-active {
+                transform: translateY(0);
+            }
+
+            .reg-page-active {
+                transform: translateY(0);
+            }
+
+            .reg-text-active {
+                transform: translateY(-100%);
+            }
+        }
+
+        /* For very small screens (less than 360px) */
+        @media (max-width: 360px) {
+            .login-cont {
+                width: 98%;
+                left: 1%;
+                top: 20px;
+            }
+
+            .header,
+            .reg-text {
+                height: 160px;
+                padding: 10px;
+            }
+
+            .header>h3,
+            .reg-text>h1 {
+                font-size: 20px;
+            }
+
+            .login>h3,
+            .reg>h3 {
+                font-size: 20px;
+            }
+
+            .login,
+            .reg {
+                padding: 20px 10px;
+            }
+
+            .login-inputs,
+            .reg-inputs {
+                padding: 12px 10px;
+            }
+
+            #reg-btn,
+            #signin-btn {
+                width: 110px;
+                padding: 7px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-cont">
+
+        <div class="header" id="login-text">
+            <h3>Welcome Back! Dear</h3>
+            <p>Do you have an account?</p>
+            <button class="sidebar-btn" id="reg-btn">Register</button>
+        </div>
+
+        <div class="login" id="login-page">
+            <h3>Login</h3>
+            <form action="./login.php" method="POST">
+
+                <div class="input-group">
+                    <input class="login-inputs" type="text" name="username" placeholder="Username" id="name">
+                    <i id="user-icon" class="fa-solid fa-user icon user"></i>
+                </div>
+                <div class="input-group">
+                    <input class="login-inputs" type="password" name="pass" placeholder="Password" id="pass">
+                    <i id="pass-icon" class="fa-solid fa-lock icon"></i>
+                </div>
+                <p class="forgot-pera">Fogot Password?</p>
+                <button type="submit" class="login-btn">Login</button>
+
+            </form>
+        </div>
+
+        <div class="reg" id="registration-page">
+            <h3>Create Account</h3>
+
+            <form action="./signup.php" method="POST">
+                <input class="reg-inputs" name="name" required id="reg-name" placeholder="Username" type="text">
+                <i id="reg-icon-user" class="fa-solid fa-user reg-icon"></i>
+                <input class="reg-inputs" required id="reg-email" placeholder="Email" name="email" type="email">
+                <i id="reg-icon-email" class="fa-solid fa-envelope reg-icon"></i>
+                <input class="reg-inputs" required id="reg-pass" placeholder="Password" name="pass" type="password">
+                <i id="reg-icon-pass" class="fa-solid fa-lock reg-icon"></i>
+                <button id="signup-btn" type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <div class="reg-text" id="registration-page-text">
+            <h1>Hello Friend!</h1>
+            <p>Hey! Already part of us?</p>
+            <button id="signin-btn">Sign in</button>
+
+
+        </div>
+
+    </div>
+    <!-- js  -->
+    <script src="./login.js"></script>
+</body>
+
+</html>

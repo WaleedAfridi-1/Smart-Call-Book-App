@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <title>Smart Callbook </title>
+</head>
+
+<body>
+    <div class="nav">
+        <h3>Lets Make a Call Thats Matters.</h3>
+        <div class="right-nav">
+            <h3>Call & SMS Hub</h3>
+            <a href="./logout.php"><button id="Logout-btn">Logout</button></a>
+        </div>
+
+    </div>
+    <div class="new-call-modal">
+        <h3>New Call</h3>
+        <form action="./cards.php" id="card-form" method="POST">
+            <label for="">Image url</label>
+            <input name="img" type="text" id="img-url" placeholder="https//example.com.photo.jpg">
+
+            <label>Name</label>
+            <input name="name" type="text" id="name" placeholder="Enter Full Name">
+
+            <label>Phone</label>
+            <input name="phone" type="tel" id="phone" placeholder="Enter Phone">
+
+            <label for="">Home Town</label>
+            <input name="hometown" type="text" id="address" placeholder="Enter Home Town">
+
+            <label for="">Purpose</label>
+            <input name="purpose" type="text" id="purpose" placeholder="e.g. Quick Appointment Note">
+
+            <div class="btn-cont">
+                <button type="submit" class="note-btn" id="create-btn">Create Note</button>
+                <button type="button" class="note-btn" id="close-btn">Close</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="main">
+
+        <div class="icons-cont">
+            <button id="add" class="add-icon"><i class="ri-add-line icons"></i></button>
+            <button id="up-arrow"><i class="ri-arrow-up-line icons"></i></button>
+            <button id="down-arrow"><i class="ri-arrow-down-line icons"></i></button>
+        </div>
+
+
+        <div id="empty-card">
+            <h1>No Cards Created!</h1>
+        </div>
+
+        <div class="cards-cont" id="cards-cont">
+
+            <!-- <div class="cards">
+
+                <div class="img-cont"><img src="https://i.pinimg.com/736x/c9/4c/6c/c94c6c22df0adf7c9745c6e408125e69.jpg"
+                        alt="Profile Pic"></div>
+                <h3>Waleed</h3>
+
+                <div class="address">
+                    <p>Home Town</p>
+                    <p>Kohat</p>
+                </div>
+
+                <div class="purpose">
+                    <p>Purpose</p>
+                    <p>Tech Talk</p>
+                </div>
+
+                <div class="purpose">
+                    <p>Phone</p>
+                    <p>0339999999</p>
+                </div>
+
+                <button class="call-sms-btn call-btn" id="call-btn"><i class="ri-phone-line"></i>Call</button>
+                <button class="call-sms-btn sms-btn" id="sms-btn">Message</button>
+            </div> -->
+
+
+
+
+
+
+        </div>
+        <div class="colors">
+            <div class="black"></div>
+            <div class="purple"></div>
+            <div class="orange"></div>
+            <div class="teal"></div>
+        </div>
+    </div> <!-- main close  -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Smart Callbook</h3>
+            <p style="margin-top:10px ;">Manage your contacts easily & stay connected anytime.</p>
+            <div class="footer-bottom">
+                <p style="line-height: -20px;">© 2025 Smart Callbook — All Rights Reserved.</p>
+                <div class="footer-social">
+                    <a href="https://github.com/WaleedAfridi-1"><i class="fa-brands fa-github footer-icons"></i></a>
+                    <a href="https://www.linkedin.com/in/waleed-afridi-3931a8333/"><i
+                            class="fa-brands fa-linkedin footer-icons"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- js  -->
+        <script src="./app.js"></script>
+</body>
+
+</html>
