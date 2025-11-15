@@ -136,11 +136,21 @@ For example, using **XAMPP**:
 htdocs/Smart-Call-Book-App/
 ```
 
-### 3️⃣ Import the Database  
-- Open phpMyAdmin  
-- Create a database:  
+
   ```
-  smartcallbook
+# Step 1: Start XAMPP and enable Apache + MySQL
+# Step 2: Copy the project folder into "htdocs"
+# Step 3: Open your browser and run this file first:
+
+http://localhost/Smart-Call-Book-App/db.php
+
+   # → This will create the database tables
+
+
+# Step 4: After database setup, run the login page:
+
+http://localhost/Smart-Call-Book-App/Login.html
+
   ```  
 
 ### 4️⃣ Configure Database Connection  
@@ -153,12 +163,6 @@ $pass = "";
 $db   = "smartcallbook";
 ```
 
-### 5️⃣ Run the App  
-```
-http://localhost/Smart-Call-Book-App/
-```
-
----
 
 
 
