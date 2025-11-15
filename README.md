@@ -80,13 +80,17 @@ Smart-Callbook/
 ├── style.css             # All styling, animations, themes
 ├── app.js                # Card logic, AJAX requests, animations
 │
+├── db.php
+├── get_cards.php
+├── delete_cards.php
+├── Login.html
+├── Login.js
 ├── login.php             # User authentication
-├── register.php          # User account creation
+├── signup.php          # User account creation
 ├── cards.php             # CRUD operations for call notes
 ├── logout.php            # Session destroy
-│
-└── database/
-       └── smartcallbook.sql   # Tables for users & cards
+
+
 ```
 
 ---
@@ -123,13 +127,13 @@ Smart-Callbook/
 
 ### 1️⃣ Clone the Repository  
 ```
-git clone https://github.com/your-username/Smart-Callbook.git
+git clone https://github.com/WaleedAfridi-1/Smart-Call-Book-App.git
 ```
 
 ### 2️⃣ Move Project to Your Local Server  
 For example, using **XAMPP**:  
 ```
-htdocs/Smart-Callbook/
+htdocs/Smart-Call-Book-App/
 ```
 
 ### 3️⃣ Import the Database  
@@ -138,10 +142,6 @@ htdocs/Smart-Callbook/
   ```
   smartcallbook
   ```  
-- Import the SQL file located in:  
-  ```
-  /database/smartcallbook.sql
-  ```
 
 ### 4️⃣ Configure Database Connection  
 Update credentials inside PHP files (if needed):
@@ -155,15 +155,12 @@ $db   = "smartcallbook";
 
 ### 5️⃣ Run the App  
 ```
-http://localhost/Smart-Callbook/
+http://localhost/Smart-Call-Book-App/
 ```
 
 ---
 
-## 📸 Screenshots  
-_Add your screenshots here for better presentation._
 
----
 
 ## 🔒 Security Recommendations  
 For production use:  
@@ -178,7 +175,7 @@ For production use:
 ## 👨‍💻 Author  
 **Waleed Afridi**  
 - GitHub: https://github.com/WaleedAfridi-1  
-- LinkedIn: *Add your profile link*  
+- LinkedIn: https://www.linkedin.com/in/waleed-afridi-3931a8333/
 
 ---
 
